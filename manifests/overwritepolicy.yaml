@@ -14,7 +14,7 @@ spec:
           - root
       overriders:
         plaintext:
-          - path: /spec/template/spec/containers/0/env/9/CLUSTER_NAME
+          - path: /spec/template/spec/containers/0/env/9/2/CLUSTER_NAME
             operator: replace
             value: Root
     - targetCluster:
@@ -22,7 +22,7 @@ spec:
           - cluster1
       overriders:
         plaintext:
-          - path: /spec/template/spec/containers/0/env/9/CLUSTER_NAME
+          - path: /spec/template/spec/containers/0/env/9/2/CLUSTER_NAME
             operator: replace
             value: Cluster1
     - targetCluster:
@@ -30,7 +30,7 @@ spec:
           - cluster2
       overriders:
         plaintext:
-          - path: /spec/template/spec/containers/0/env/9/CLUSTER_NAME
+          - path: /spec/template/spec/containers/0/env/9/2/CLUSTER_NAME
             operator: replace
             value: Cluster2
     - targetCluster:
@@ -38,6 +38,6 @@ spec:
           - cluster3
       overriders:
         plaintext:
-          - path: /spec/template/spec/containers/0/env/9/CLUSTER_NAME
+          - path: /spec/template/spec/containers/0/env/9/2/CLUSTER_NAME
             operator: replace
             value: Cluster3
