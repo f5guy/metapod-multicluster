@@ -7,6 +7,7 @@ spec:
   placement:
     clusterAffinity:
       clusterNames:
+      - root
       - cluster1
       - cluster2
       - cluster3
@@ -26,16 +27,20 @@ spec:
         staticWeightList:
         - targetCluster:
             clusterNames:
+            - root
+          weight: 2
+        - targetCluster:
+            clusterNames:
             - cluster1
-          weight: 1
+          weight: 2
         - targetCluster:
             clusterNames:
             - cluster2
-          weight: 1
+          weight: 2
         - targetCluster:
             clusterNames:
             - cluster3
-          weight: 1
+          weight: 2
   preemption: Never
   priority: 0
   resourceSelectors:
