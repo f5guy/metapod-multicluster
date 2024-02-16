@@ -21,7 +21,7 @@ metadata:
   name: metapod
   namespace: demo
 spec:
-  replicas: 6
+  replicas: 8
   selector:
     matchLabels:
       app: metapod
