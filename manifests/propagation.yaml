@@ -1,0 +1,50 @@
+apiVersion: policy.karmada.io/v1alpha1
+kind: PropagationPolicy
+metadata:
+  name: metapod-propagation
+  namespace: demo
+spec:
+  placement:
+    clusterAffinity:
+      clusterNames:
+      - cluster1
+      - cluster2
+      - cluster3
+    clusterTolerations:
+    - effect: NoExecute
+      key: cluster.karmada.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: cluster.karmada.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    replicaScheduling:
+      replicaDivisionPreference: Weighted
+      replicaSchedulingType: Divided
+      weightPreference:
+        staticWeightList:
+        - targetCluster:
+            clusterNames:
+            - cluster1
+          weight: 1
+        - targetCluster:
+            clusterNames:
+            - cluster2
+          weight: 1
+        - targetCluster:
+            clusterNames:
+            - cluster3
+          weight: 1
+  preemption: Never
+  priority: 0
+  resourceSelectors:
+  - apiVersion: apps/v1
+    kind: Deployment
+    name: metapod
+    namespace: demo
+  - apiVersion: v1
+    kind: Service
+    name: metapod
+    namespace: demo
+  schedulerName: default-scheduler
