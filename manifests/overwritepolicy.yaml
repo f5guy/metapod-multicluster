@@ -11,12 +11,20 @@ spec:
   overrideRules:
     - targetCluster:
         clusterNames:
+          - root
+      overriders:
+        plaintext:
+          - path: /spec/template/spec/containers/0/env/9/CLUSTER_NAME
+            operator: replace
+            value: Root
+    - targetCluster:
+        clusterNames:
           - cluster1
       overriders:
         plaintext:
           - path: /spec/template/spec/containers/0/env/9/CLUSTER_NAME
             operator: replace
-            value: cluster1
+            value: Cluster1
     - targetCluster:
         clusterNames:
           - cluster2
@@ -24,7 +32,7 @@ spec:
         plaintext:
           - path: /spec/template/spec/containers/0/env/9/CLUSTER_NAME
             operator: replace
-            value: cluster2
+            value: Cluster2
     - targetCluster:
         clusterNames:
           - cluster3
@@ -32,4 +40,4 @@ spec:
         plaintext:
           - path: /spec/template/spec/containers/0/env/9/CLUSTER_NAME
             operator: replace
-            value: cluster3
+            value: Cluster3
