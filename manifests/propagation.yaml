@@ -39,6 +39,9 @@ spec:
   preemption: Never
   priority: 0
   resourceSelectors:
+   apiVersion: apps/v1
+    kind: Namespace
+    name: demo
   - apiVersion: apps/v1
     kind: Deployment
     name: metapod
