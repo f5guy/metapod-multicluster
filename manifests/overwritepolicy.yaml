@@ -11,14 +11,6 @@ spec:
   overrideRules:
     - targetCluster:
         clusterNames:
-          - root
-      overriders:
-        plaintext:
-          - path: /spec/template/spec/containers/0/env/9/value
-            operator: replace
-            value: Root
-    - targetCluster:
-        clusterNames:
           - cluster1
       overriders:
         plaintext:
